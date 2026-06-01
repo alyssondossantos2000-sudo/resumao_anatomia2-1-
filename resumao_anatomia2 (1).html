@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Resumão Anatomía II — 2° Semestre</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0f;--card:#18181f;--border:#2d2d3f;
+  --pink:#f472b6;--rose:#fb7185;--light-pink:#fbb6ce;
+  --purple:#a78bfa;--light-purple:#c4b5fd;
+  --green:#34d399;--yellow:#fbbf24;--blue:#60a5fa;--orange:#fb923c;
+  --text:#f0e6ff;--muted:#8b8ba7;--subtle:#3d3d55;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 60% at 10% 20%,rgba(244,114,182,0.06) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 90% 80%,rgba(167,139,250,0.05) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 50% 50%,rgba(251,113,133,0.04) 0%,transparent 70%)}
+
+/* NAV */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:0;overflow-x:auto;height:52px}
+.topnav a{white-space:nowrap;padding:0 14px;height:52px;display:flex;align-items:center;color:var(--muted);font-size:0.78rem;font-weight:600;text-decoration:none;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;gap:6px}
+.topnav a:hover{color:var(--light-pink);border-color:var(--pink)}
+.topnav .brand{color:var(--pink);font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;margin-right:8px;border:none;flex-shrink:0}
+
+/* LAYOUT */
+.page{position:relative;z-index:1;padding:80px 16px 60px;max-width:900px;margin:0 auto}
+
+/* HERO */
+.hero{text-align:center;padding:40px 0 48px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;background:linear-gradient(135deg,var(--pink),var(--rose),var(--light-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.15;margin-bottom:16px}
+.hero-sub{color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto 24px;font-weight:300}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pill{background:rgba(244,114,182,0.1);border:1px solid rgba(244,114,182,0.25);color:var(--light-pink);border-radius:99px;padding:5px 14px;font-size:0.78rem;font-weight:500}
+
+/* SECTION */
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.section-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.section-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,var(--pink),var(--light-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--muted);font-size:0.82rem;font-weight:400;margin-top:2px}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:16px}
+.card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--light-pink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card p{color:#d0c0e0;font-size:0.88rem;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+
+/* GRID */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:16px}
+
+/* INFO BLOCKS */
+.info-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.info-block h4{font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;margin-bottom:10px}
+.info-block ul{margin-left:16px;color:#c8b8de;font-size:0.84rem}
+.info-block li{margin-bottom:5px}
+.info-block strong{color:var(--light-pink)}
+.info-block em{color:var(--light-purple)}
+
+/* HIGHLIGHT BOXES */
+.box{border-radius:12px;padding:14px 18px;margin:12px 0;font-size:0.85rem;line-height:1.65}
+.box-pink{background:rgba(244,114,182,0.08);border-left:3px solid var(--pink);color:#e0c8f0}
+.box-green{background:rgba(52,211,153,0.07);border-left:3px solid var(--green);color:#c0f0dc}
+.box-purple{background:rgba(167,139,250,0.08);border-left:3px solid var(--purple);color:#d8ccf8}
+.box-yellow{background:rgba(251,191,36,0.07);border-left:3px solid var(--yellow);color:#f0dca0}
+.box-blue{background:rgba(96,165,250,0.07);border-left:3px solid var(--blue);color:#c0d8f8}
+.box-orange{background:rgba(251,146,60,0.07);border-left:3px solid var(--orange);color:#f0c8a0}
+.box strong{color:inherit;font-weight:600}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:0.83rem;margin:12px 0}
+.tbl th{background:rgba(244,114,182,0.1);color:var(--light-pink);padding:8px 12px;text-align:left;font-weight:600;border:1px solid var(--border)}
+.tbl td{padding:8px 12px;border:1px solid var(--border);color:#c8b8de;vertical-align:top}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
+
+/* BADGE */
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:0.72rem;font-weight:700;margin-left:6px;vertical-align:middle}
+.badge-pink{background:rgba(244,114,182,0.15);color:var(--light-pink);border:1px solid rgba(244,114,182,0.3)}
+.badge-green{background:rgba(52,211,153,0.12);color:var(--green);border:1px solid rgba(52,211,153,0.3)}
+.badge-purple{background:rgba(167,139,250,0.12);color:var(--light-purple);border:1px solid rgba(167,139,250,0.3)}
+.badge-yellow{background:rgba(251,191,36,0.12);color:var(--yellow);border:1px solid rgba(251,191,36,0.3)}
+
+/* STRUCTURE TREE */
+.tree{font-size:0.84rem;color:#c8b8de;padding:14px 18px;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid var(--border)}
+.tree .l0{color:var(--light-pink);font-weight:600;font-size:0.9rem}
+.tree .l1{padding-left:16px;color:#d8c8f0}
+.tree .l2{padding-left:32px;color:#b8a8d8}
+.tree .l3{padding-left:48px;color:#988898}
+.tree .l0,.tree .l1,.tree .l2,.tree .l3{padding-top:3px;padding-bottom:3px}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:32px 0}
+
+/* PROVA ALERT */
+.prova{background:rgba(244,114,182,0.07);border:1px dashed rgba(244,114,182,0.4);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:0.83rem;color:var(--light-pink)}
+.prova::before{content:"🎯 PROVA: ";font-weight:700}
+
+/* NUMBER CIRCLE */
+.num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--pink);color:#fff;font-size:0.7rem;font-weight:700;margin-right:6px;flex-shrink:0}
+
+/* SCROLL TOP */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:50;background:linear-gradient(135deg,var(--pink),var(--rose));color:#fff;border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;font-size:1.1rem;box-shadow:0 4px 20px rgba(244,114,182,0.4)}
+
+footer{text-align:center;padding:32px 16px;color:var(--pink);font-family:'Playfair Display',serif;font-weight:700;font-size:13px;position:relative;z-index:1;border-top:1px solid var(--border);margin-top:40px}
+
+/* QUIZ BUTTONS SECTION */
+.quiz-section{margin-top:36px;padding:32px 28px;background:rgba(244,114,182,0.04);border:1px solid rgba(244,114,182,0.15);border-radius:20px}
+.quiz-section-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--light-pink);text-align:center;margin-bottom:6px}
+.quiz-section-sub{color:var(--muted);font-size:0.8rem;text-align:center;margin-bottom:22px}
+.quiz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}
+.quiz-btn{display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden}
+.quiz-btn:hover{border-color:var(--pink);transform:translateY(-3px);box-shadow:0 8px 24px rgba(244,114,182,0.18)}
+.quiz-btn-icon{font-size:1.4rem;margin-bottom:4px}
+.quiz-btn-title{font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)}
+.quiz-btn-sub{font-size:0.7rem;color:var(--muted);font-weight:400}
+.quiz-btn-badge{position:absolute;top:10px;right:10px;background:linear-gradient(135deg,var(--pink),var(--rose));color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px}
+.topnav a.qnav{color:var(--light-pink) !important;border-bottom:2px solid var(--pink) !important}
+
+/* ===== FUNDO ANIMADO — igual aos quizzes ===== */
+@keyframes orbPulse{0%,100%{opacity:var(--op);transform:scale(1)}50%{opacity:calc(var(--op)*1.4);transform:scale(1.08)}}
+@keyframes bowFloat{0%{transform:translateY(0) rotate(var(--r0))}33%{transform:translateY(-14px) rotate(var(--r1))}66%{transform:translateY(7px) rotate(var(--r2))}100%{transform:translateY(0) rotate(var(--r0))}}
+@keyframes sparkleTwinkle{0%,100%{opacity:0;transform:scale(0.5)}50%{opacity:1;transform:scale(1)}}
+@keyframes diamondDrift{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-10px)}100%{transform:rotate(360deg) translateY(0)}}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;animation:orbPulse var(--dur) var(--delay) ease-in-out infinite}
+.bg-emoji{position:fixed;pointer-events:none;z-index:0;font-size:var(--sz);opacity:var(--op);animation:bowFloat var(--dur) var(--delay) ease-in-out infinite;user-select:none}
+.bg-sparkle{position:fixed;pointer-events:none;z-index:0;animation:sparkleTwinkle var(--dur) var(--delay) ease-in-out infinite}
+.bg-diamond{position:fixed;pointer-events:none;z-index:0;width:8px;height:8px;background:var(--pink);opacity:0.15;transform:rotate(45deg);animation:diamondDrift var(--dur) var(--delay) ease-in-out infinite}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.022}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="brand" href="#top">📚 Anatomía II</a>
+  <a href="#estomago">🫃 Estómago</a>
+  <a href="#intestino-delgado">🪱 Int. Delgado</a>
+  <a href="#intestino-grueso">🦠 Int. Grueso</a>
+  <a href="#higado">🟤 Hígado</a>
+  <a href="#pancreas">🫛 Páncreas</a>
+  <a href="#bazo">💜 Bazo</a>
+  <a href="#aorta">🔴 Aorta</a>
+  <a href="#rinones">🫘 Riñones</a>
+  <a href="#ureteres">🔵 Uréteres</a>
+  <a href="#meninges">🧠 Meninges</a>
+  <a href="#provas">📋 Provas</a><a href="#quizzes" class="qnav">🎯 Quizzes</a>
+</nav>
+
+<div class="page" id="top">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-title">Resumão Completo<br>Anatomía Humana II</div>
+  <p class="hero-sub">Todo o conteúdo dos slides — Cátedra de Anatomía Humana, Dra. Liz Leguizamón · 1° Año, 2° Semestre · Filial PJC</p>
+  <div class="pills">
+    <span class="pill">🫃 Estómago</span>
+    <span class="pill">🪱 Intestino Delgado</span>
+    <span class="pill">🦠 Intestino Grueso</span>
+    <span class="pill">🟤 Hígado & Vías Biliares</span>
+    <span class="pill">🫛 Páncreas</span>
+    <span class="pill">💜 Bazo</span>
+    <span class="pill">🔴 Aorta Abdominal</span>
+    <span class="pill">🫘 Riñones & Nefrona</span>
+    <span class="pill">🔵 Uréteres</span>
+    <span class="pill">🧠 Meninges</span>
+  </div>
+
+  <div style="margin-top:40px;padding:36px 32px;background:linear-gradient(135deg,rgba(244,114,182,0.06),rgba(167,139,250,0.06));border:1px solid rgba(244,114,182,0.2);border-radius:22px" id="quizzes">
+    <p style="text-align:center;font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--light-pink);margin-bottom:6px">🎯 Quizzes Interativos por Tema</p>
+    <p style="text-align:center;color:var(--muted);font-size:0.8rem;margin-bottom:24px">20 questões cada · explicações detalhadas · aulas completas · tela de resultados</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px">
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_estomago/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🫃</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Estómago</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Anatomia, capas, epiplones</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_intestinos/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🪱</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Intestinos</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Delgado + Grueso + Duodeno</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_higado_pancreas/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🟤</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Hígado & Páncreas</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Lóbulos, vías biliares, Calot</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_aorta/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🔴</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Aorta Abdominal</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Ramas, tronco celíaco, VCI</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_rinones/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🫘</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Riñones</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Fascias, hilio, nefrona</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_ureteres/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🔵</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Uréteres</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Porciones, estrechamientos</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_meninges/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='var(--pink)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(244,114,182,0.18)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#f472b6,#fb7185);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">20 Q</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">🧠</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--text)">Meninges</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Duramadre, senos venosos</span>
+      </a>
+      <a href="https://alyssondossantos2000-sudo.github.io/quiz_anatomia2/" target="_blank" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.35);border-radius:14px;padding:16px 18px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden" onmouseover="this.style.borderColor='#a78bfa';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(167,139,250,0.25)'" onmouseout="this.style.borderColor='rgba(167,139,250,0.35)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <span style="position:absolute;top:10px;right:10px;background:linear-gradient(135deg,#a78bfa,#c4b5fd);color:#fff;border-radius:99px;font-size:0.63rem;font-weight:700;padding:2px 8px">⭐ P2</span>
+        <span style="font-size:1.4rem;margin-bottom:4px">📋</span>
+        <span style="font-family:'Playfair Display',serif;font-weight:700;font-size:0.88rem;color:var(--light-purple)">Cuestionario P2</span>
+        <span style="font-size:0.7rem;color:var(--muted)">Questões reais + gabarito</span>
+      </a>
+    </div>
+  </div>
+
+
+<!-- ===== ESTÓMAGO ===== -->
+<section class="section" id="estomago">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(244,114,182,0.12)">🫃</div>
+    <div><div class="section-title">Estómago</div><div class="section-sub">Clase 13 · Latarjet Cap. 107 · pág. 1265</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Localización y Definición</div>
+    <p>El estómago es un <strong>reservorio muscular</strong> interpuesto entre el esófago y el duodeno, donde se acumulan los alimentos y cuya mucosa segrega jugo digestivo.</p>
+    <div class="box box-pink"><strong>Ubicación:</strong> Epigastrio e hipocondrio izquierdo. Receso subfrénico izquierdo, arriba del mesocolon transverso, debajo del hígado y del diafragma.</div>
+    <div class="box box-green"><strong>Forma:</strong> J mayúscula</div>
+    <div class="box box-purple"><strong>Dimensiones:</strong> 25 × 12 × 8 cm · Capacidad media: <strong>1300 cm³</strong></div>
+  </div>
+
+  <div class="grid2">
+    <div class="info-block">
+      <h4 style="color:var(--light-pink)">⬆ Porciones</h4>
+      <ul>
+        <li><strong>Porción vertical:</strong>
+          <ul style="padding-left:14px;margin-top:4px">
+            <li>Fundus gástrico (tuberosidad mayor) — convexo hacia arriba, subdiafragmático</li>
+            <li>Cuerpo gástrico — cilíndrico, aplanado AP</li>
+            <li>Extremidad inferior (tuberosidad menor)</li>
+          </ul>
+        </li>
+        <li><strong>Porción pilórica</strong> (horizontal): Antro pilórico — parte más declive</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h4 style="color:var(--light-pink)">↕ Orificios y Curvaturas</h4>
+      <ul>
+        <li><strong>Cardias:</strong> unión esófago-estómago; oval; sin relieve muscular</li>
+        <li><strong>Píloro:</strong> unión estómago-duodeno; con <em>esfínter pilórico</em> palpable</li>
+        <li><strong>Curvatura mayor:</strong> cardias → píloro; forma <em>ángulo de His</em> con esófago</li>
+        <li><strong>Curvatura menor:</strong> cardias → píloro; forma <em>incisura angular</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧱 Constitución Anatómica (4 capas)</div>
+    <div class="tree">
+      <div class="l0">De superficial → profundo:</div>
+      <div class="l1">1. <strong>Serosa</strong></div>
+      <div class="l1">2. <strong>Muscular</strong> — 3 capas de fibras:
+        <div class="l2">• Longitudinales (forman la <em>"Corbata Suiza"</em> en curvatura menor)</div>
+        <div class="l2">• Circulares</div>
+        <div class="l2">• Oblicuas o en asa</div>
+      </div>
+      <div class="l1">3. <strong>Submucosa</strong></div>
+      <div class="l1">4. <strong>Mucosa</strong> — pliegues paralelos al eje mayor; válvula de Gubarow (anti-reflujo)</div>
+    </div>
+    <div class="prova">Las células parietales del estómago secretan HCl. La incisura angularis = unión porción vertical + horizontal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🩺 Peritoneo Gástrico (Epiplones)</div>
+    <div class="grid3">
+      <div class="box box-pink" style="margin:0"><strong>Epiplón mayor</strong><br>= Gastrocólico<br>Gran curvatura → colon</div>
+      <div class="box box-purple" style="margin:0"><strong>Epiplón menor</strong><br>= Gastrohepático<br>Pequeña curvatura → hígado</div>
+      <div class="box box-blue" style="margin:0"><strong>Epiplón gastroesplénico</strong><br>Gran curvatura → bazo</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Vascularización Gástrica</div>
+    <table class="tbl">
+      <tr><th>Arco</th><th>Arterias que lo forman</th></tr>
+      <tr><td><strong>Curvatura menor</strong></td><td>A. gástrica izquierda (coronaria estomáquica — tronco celíaco) + A. gástrica derecha (hepática propia)</td></tr>
+      <tr><td><strong>Curvatura mayor</strong></td><td>A. gastroepiploica derecha (gastroduodenal) + A. gastroepiploica izquierda (esplénica)</td></tr>
+      <tr><td><strong>Fundus</strong></td><td>Arterias gástricas cortas (esplénica)</td></tr>
+      <tr><td><strong>Cara posterior</strong></td><td>A. gástrica posterior (esplénica)</td></tr>
+    </table>
+    <div class="prova">Curvatura MENOR → arterias GÁSTRICAs. Curvatura MAYOR → arterias GastroEPIPLOICAS.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📦 Bolsa Omental (Transcavidad de los Epiplones)</div>
+    <div class="grid2">
+      <div>
+        <p style="color:var(--muted);font-size:0.8rem;margin-bottom:8px">Límites:</p>
+        <ul style="font-size:0.84rem;color:#c8b8de;margin-left:16px">
+          <li><strong>Arriba:</strong> cara inferior del hígado</li>
+          <li><strong>Abajo:</strong> epiplón gastrocólico (mayor)</li>
+          <li><strong>Adelante:</strong> cara posterior del estómago</li>
+          <li><strong>Atrás:</strong> pared posterior abdomen, retroperitoneo, <strong>páncreas</strong></li>
+        </ul>
+      </div>
+      <div class="box box-yellow" style="margin:0"><strong>Entre:</strong> estómago (anterior) y páncreas (posterior). Clínica: pseudoquistes pancreáticos se acumulan aquí.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== INTESTINO DELGADO ===== -->
+<section class="section" id="intestino-delgado">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(96,165,250,0.12)">🪱</div>
+    <div><div class="section-title">Intestino Delgado</div><div class="section-sub">Clase 14 · Latarjet Cap. 113-114</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p>Se extiende desde el <strong>píloro</strong> hasta la <strong>válvula ileocecal</strong>. Longitud: <strong>6 a 8 metros</strong>.</p>
+    <div class="grid2">
+      <div class="box box-pink" style="margin:0"><strong>Porción fija:</strong> Duodeno (excepto su 1ª porción)</div>
+      <div class="box box-blue" style="margin:0"><strong>Porción móvil (flotante):</strong> Yeyuno + Íleon</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔵 Duodeno</div>
+    <div class="box box-pink">Forma de <strong>anillo incompleto</strong> (abierto arriba y a la izquierda), dispuesto alrededor de la cabeza del páncreas. Mide <strong>25 cm</strong>.</div>
+    <table class="tbl">
+      <tr><th>#</th><th>Porción</th><th>Características</th></tr>
+      <tr><td><strong>1ª</strong></td><td>Superior (bulbo)</td><td>Móvil. Píloro → cuello vesícula biliar. Relaciones con hígado, vena porta</td></tr>
+      <tr><td><strong>2ª</strong></td><td>Descendente</td><td>Fija. Contiene <em>ampolla de Vater + papila mayor + esfínter de Oddi</em>. Íntimamente unida a cabeza del páncreas</td></tr>
+      <tr><td><strong>3ª</strong></td><td>Horizontal</td><td>Fija. Cruzada por la <em>arteria mesentérica superior</em> (compresión = síndrome AMS)</td></tr>
+      <tr><td><strong>4ª</strong></td><td>Ascendente</td><td>Fija. Termina en <em>ángulo de Treitz</em> (flexura duodenoyeyunal), suspendido por <strong>músculo de Treitz</strong></td></tr>
+    </table>
+    <div class="prova">La 3ª porción del duodeno es comprimida por la arteria mesentérica superior (síndrome de la AMS). El músculo de Treitz suspende la flexura duodenoyeyunal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧱 Configuración interna del Duodeno</div>
+    <ul style="font-size:0.85rem;color:#c8b8de;margin-left:18px">
+      <li><strong>Mucosa:</strong> válvulas conniventes (pliegues circulares), glándulas de Lieberkühn y glándulas de Brunner (exclusivas del duodeno)</li>
+      <li><strong>Submucosa:</strong> laxa</li>
+      <li><strong>Muscular:</strong> capa circular profunda + longitudinal superficial; <em>esfínter de Oddi</em></li>
+      <li><strong>En 2ª porción:</strong> ampolla de Vater, carúncula mayor → esfínter de Oddi</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🌿 Yeyuno e Íleon</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Yeyuno (proximal ~40%)</h4>
+        <ul>
+          <li>Pliegues circulares prominentes</li>
+          <li>Vellosidades más desarrolladas</li>
+          <li>Mayor absorción</li>
+          <li>Cerca de la flexura duodenoyeyunal</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--light-purple)">Íleon (distal ~60%)</h4>
+        <ul>
+          <li>Pliegues menos prominentes</li>
+          <li>Placas de Peyer (tejido linfoide)</li>
+          <li>Termina en válvula ileocecal (Bauhin)</li>
+          <li>Cerca de la unión ileocecal</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">El ÍLEON está cerca de la unión ileocecal y el YEYUNO cerca de la flexura duodenoyeyunal. Longitud total: 5,50 a 9 m (promedio 6,60 m). Diámetro: 25-30 mm en origen → 15-20 mm en terminación.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== INTESTINO GRUESO ===== -->
+<section class="section" id="intestino-grueso">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(251,146,60,0.12)">🦠</div>
+    <div><div class="section-title">Intestino Grueso</div><div class="section-sub">Clase 15 · Latarjet Cap. 115 · pág. 1377</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p>Continúa al íleon. Se extiende desde el <strong>orificio ileal (válvula ileocecal)</strong> hasta el <strong>ano</strong>. Longitud total: <strong>1,60 a 1,80 m</strong>.</p>
+    <div class="tree">
+      <div class="l0">Segmentos del intestino grueso:</div>
+      <div class="l1">1. Ciego + apéndice vermiforme</div>
+      <div class="l1">2. Colon:
+        <div class="l2">• Ascendente (fijo)</div>
+        <div class="l2">• Flexura cólica derecha (hepática)</div>
+        <div class="l2">• Transverso (móvil)</div>
+        <div class="l2">• Flexura cólica izquierda (esplénica)</div>
+        <div class="l2">• Descendente (fijo)</div>
+        <div class="l2">• Sigmoideo (móvil)</div>
+      </div>
+      <div class="l1">3. Recto (a nivel de S3)</div>
+      <div class="l1">4. Canal anal</div>
+    </div>
+    <div class="prova">Porciones FIJAS del colon: ascendente, descendente, flexuras. Porciones MÓVILES: transverso, sigmoideo.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔍 Características Propias del Intestino Grueso</div>
+    <div class="grid3">
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Tenias del Colon</h4>
+        <ul>
+          <li>3 bandeletas longitudinales de fibras musculares (8-15 mm)</li>
+          <li>Comienzan en la <strong>base del apéndice</strong></li>
+          <li>Tenia libre (anterior)</li>
+          <li>Tenia epiploica (posterolateral)</li>
+          <li>Tenia mesocólica (posteromedial)</li>
+          <li>Desaparecen a nivel del recto</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--orange)">Haustras</h4>
+        <ul>
+          <li>Dilataciones en saco entre pliegues semilunares</li>
+          <li>Más desarrolladas en ciego y sigmoideo</li>
+          <li>Más numerosas en colon transverso</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--light-purple)">Apéndices Epiploicos</h4>
+        <ul>
+          <li>Pequeñas masas adiposas pediculadas</li>
+          <li>A lo largo de todo el colon</li>
+          <li>Ausentes en recto y ciego</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">El intestino grueso NO tiene vellosidades ni pliegues circulares (conniventes). SÍ tiene células caliciformes y glándulas secretoras de moco.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🦷 Ciego y Apéndice Vermiforme</div>
+    <div class="grid2">
+      <div class="box box-pink" style="margin:0"><strong>Ciego:</strong> continuación del íleon; se implanta el apéndice en su cara medioinferiór; inicio de las tenias del colon.</div>
+      <div class="box box-purple" style="margin:0"><strong>Apéndice vermiforme:</strong> tubular, flexuoso, 9 cm; 2-3 cm debajo del orificio ileal; válvula apendicular de Gerlach (impide reflujo).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔺 Raíz del Mesenterio</div>
+    <div class="box box-yellow">Se extiende desde el <strong>flanco izquierdo a nivel de L2</strong> hasta la <strong>articulación sacroilíaca derecha</strong>. Sigue una línea oblicua hacia abajo y a la derecha de unos 15 cm.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🌀 Arco Marginal del Colon (Arco de Riolano)</div>
+    <div class="box box-green">Formado por la anastomosis de ramas de la <strong>arteria mesentérica superior</strong> (cólica derecha y media) con ramas de la <strong>arteria mesentérica inferior</strong> (cólica izquierda). Corre paralelo al intestino grueso.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== HÍGADO ===== -->
+<section class="section" id="higado">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(251,191,36,0.12)">🟤</div>
+    <div><div class="section-title">Hígado & Vías Biliares</div><div class="section-sub">Clase 16 · Latarjet Cap. 109-110-111-112</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p>El <strong>órgano más voluminoso del organismo</strong>. Glándula anexa al sistema digestivo que vierte la bilis en el duodeno. Situado debajo del diafragma, por encima del duodeno y por delante del estómago.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏔️ Caras y Lóbulos</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Caras</h4>
+        <ul>
+          <li><strong>Cara diafragmática:</strong> porciones anterior, superior, derecha y posterior (área desnuda)</li>
+          <li><strong>Cara visceral:</strong> orientada abajo, izq., atrás. Presenta surcos en H</li>
+          <li><strong>Borde inferior</strong></li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Surcos de la cara visceral</h4>
+        <ul>
+          <li><strong>Surco derecho:</strong> fosa de la vesícula biliar</li>
+          <li><strong>Surco izquierdo:</strong> fisura del ligamento redondo (lig. redondo = lig. de la vena umbilical)</li>
+          <li><strong>Surco transverso:</strong> porta hepático (hilio del hígado)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box box-yellow">
+      <strong>4 lóbulos:</strong><br>
+      • <strong>Derecho</strong> — relaciones: colon, riñón (atrás), duodeno (medial), suprarrenal (posterior)<br>
+      • <strong>Cuadrado</strong> — entre fosa vesícula biliar y fisura del ligamento redondo, por delante del porta hepático<br>
+      • <strong>Izquierdo</strong> — cara inferior corresponde al estómago<br>
+      • <strong>Caudado (de Spiegel)</strong> — detrás y arriba del porta hepático; lóbulo independiente
+    </div>
+    <div class="prova">El hígado presenta 4 lóbulos (no 2, no 7). Se proyecta en: hipocondrio derecho, epigastrio e hipocondrio izquierdo.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🩸 Vascularización</div>
+    <div class="grid2">
+      <div class="box box-orange" style="margin:0"><strong>Irrigación nutricia:</strong><br>Arteria hepática propia (rama de la hepática común — tronco celíaco)</div>
+      <div class="box box-green" style="margin:0"><strong>Irrigación funcional:</strong><br>Vena porta hepática (70% del flujo; trae nutrientes del intestino)</div>
+    </div>
+    <div class="box box-pink" style="margin-top:12px"><strong>Pedículo hepático (tríada portal):</strong> Conducto colédoco + Arteria hepática propia + Vena porta</div>
+    <div class="prova">La irrigación FUNCIONAL es la vena porta. La irrigación NUTRICIA es la arteria hepática. La cápsula del hígado se llama cápsula de Glisson.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📐 Ligamentos del Hígado</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Ligamentos peritoneales</h4>
+        <ul>
+          <li><strong>Ligamento falciforme</strong> — conecta cara anterior del hígado con la pared abdominal anterior</li>
+          <li><strong>Ligamento redondo</strong> — en el borde libre del falciforme (resto de la v. umbilical)</li>
+          <li><strong>Ligamento coronario</strong> — une hígado con diafragma</li>
+          <li><strong>Ligamentos triangulares</strong> derecho e izquierdo</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Ligamento venoso</h4>
+        <ul>
+          <li>Resto del conducto venoso de Arancio</li>
+          <li>En la fisura del ligamento venoso (cara visceral)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">Ligamento FALCIFORME conecta hígado con pared abdominal ANTERIOR. Ligamento CORONARIO con el diafragma. Mínimo 4 ligamentos del hígado para citar.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">💛 Vesícula Biliar y Vías Biliares</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Vesícula biliar</h4>
+        <ul>
+          <li>Saco piriforme, 7-10 cm</li>
+          <li>Depresión cara inferior del hígado</li>
+          <li>Partes: <strong>fondo, cuerpo, cuello → conducto cístico</strong></li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--yellow)">Triángulo de Calot</h4>
+        <ul>
+          <li>Abajo: conducto cístico</li>
+          <li>Izquierda: conducto hepático común</li>
+          <li>Arriba: cara visceral del hígado</li>
+          <li>Contenido: <strong>arteria cística</strong> (rama de la hepática derecha)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="box box-pink"><strong>Conducto colédoco</strong> = conducto <strong>cístico</strong> + conducto <strong>hepático común</strong>. Diámetro promedio: 6 mm. Desemboca con el conducto de Wirsung en la <strong>2ª porción del duodeno</strong> (ampolla de Vater / papila mayor).</div>
+    <div class="prova">Colédoco = Cístico + Hepático COMÚN (NO hepático propio). La arteria cística nace de la hepática DERECHA dentro del triángulo de Calot.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== PÁNCREAS ===== -->
+<section class="section" id="pancreas">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(52,211,153,0.12)">🫛</div>
+    <div><div class="section-title">Páncreas</div><div class="section-sub">Clase 16 · Latarjet Cap. 112</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p>Glándula de <strong>12-15 cm de longitud</strong>, 2,5 cm de ancho, <strong>70-80 g</strong>. Detrás del estómago. <strong>Glándula mixta</strong> (exocrina + endocrina). Se apoya en la columna lumbar a nivel L1-L2.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🧩 Porciones del Páncreas</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--green)">Cabeza</h4>
+        <ul>
+          <li>Enmarcada por el duodeno (anillo duodenal)</li>
+          <li>Proceso unciforme (páncreas menor de Winslow) — prolongación hacia abajo e izquierda</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--green)">Cuello (istmo)</h4>
+        <ul>
+          <li>Une cabeza con cuerpo</li>
+          <li>~2 cm de longitud</li>
+          <li>Por detrás: origen de la vena porta</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--green)">Cuerpo</h4>
+        <ul>
+          <li>Hacia la izquierda y arriba</li>
+          <li>Prisma con 3 caras: anterior, posterior e inferior</li>
+          <li>Forma pared posterior de la transcavidad de los epiplones</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--green)">Cola</h4>
+        <ul>
+          <li>Extremidad izquierda</li>
+          <li>Dirigida hacia el hilio del bazo</li>
+          <li>Contacto con el bazo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">4 porciones del páncreas: Cabeza — Cuello — Cuerpo — Cola.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Vascularización del Páncreas</div>
+    <table class="tbl">
+      <tr><th>Región</th><th>Irrigación arterial</th></tr>
+      <tr><td><strong>Cabeza y cuello</strong></td><td>Arcos pancreatoduodenales: a. gastroduodenal (de la hepática común) + a. mesentérica superior</td></tr>
+      <tr><td><strong>Cuerpo y cola</strong></td><td>Ramas de la <strong>arteria esplénica</strong> (pancreática dorsal, pancreática inferior, arterias pancreáticas pequeñas)</td></tr>
+    </table>
+    <div class="prova">Cuerpo y cola del páncreas → arteria ESPLÉNICA. Cabeza → arcadas pancreatoduodenales (gastroduodenal + mesentérica superior).</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔬 Conductos del Páncreas</div>
+    <div class="grid2">
+      <div class="box box-green" style="margin:0"><strong>Conducto de Wirsung</strong> (principal):<br>Se inicia en la cola → 2ª porción del duodeno (ampolla de Vater / papila mayor) junto con el colédoco</div>
+      <div class="box box-purple" style="margin:0"><strong>Conducto de Santorini</strong> (accesorio):<br>Desemboca en la 2ª porción del duodeno en la <strong>papila menor</strong> (2 cm sobre la papila mayor)</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== BAZO ===== -->
+<section class="section" id="bazo">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(167,139,250,0.12)">💜</div>
+    <div><div class="section-title">Bazo</div><div class="section-sub">Clase 16 · Latarjet Cap. 111</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p>Órgano linfático, situado en el hipocondrio izquierdo. Su hilio esplénico se localiza en la <strong>cara visceral (medial)</strong>. Relacionado con estómago, páncreas, diafragma, colon y riñón izquierdo.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Vascularización del Bazo</div>
+    <div class="box box-purple">
+      <strong>Arteria esplénica:</strong> rama del tronco celíaco. Trayecto tortuoso siguiendo el borde superior del páncreas → hilio del bazo. Ramas terminales: superior e inferior.<br><br>
+      <strong>Vena esplénica:</strong> afluente de origen de la vena porta. Se forma por venas del hilio. Recibe la vena mesentérica inferior → se une con la mesentérica superior → forma la vena porta.
+    </div>
+    <div class="prova">La vena esplénica + vena mesentérica superior = vena porta hepática. La vena mesentérica inferior drena en la esplénica.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== AORTA ABDOMINAL ===== -->
+<section class="section" id="aorta">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(251,113,133,0.12)">🔴</div>
+    <div><div class="section-title">Aorta Abdominal & Vena Cava Inferior</div><div class="section-sub">Clase 12 · Latarjet Cap. 57</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Aorta Abdominal — Generalidades</div>
+    <div class="grid2">
+      <div class="box box-pink" style="margin:0"><strong>Origen:</strong> Hiato aórtico del diafragma (T12)</div>
+      <div class="box box-red" style="background:rgba(251,113,133,0.07);border-left:3px solid var(--rose);margin:0"><strong>Terminación:</strong> Bifurcación en arterias ilíacas comunes, frente al cuerpo de L4</div>
+    </div>
+    <p style="margin-top:12px;font-size:0.85rem;color:#c8b8de">Trayecto: línea sagital media, ligeramente a la izquierda. Profunda, contra los cuerpos vertebrales, detrás de las vísceras abdominales.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🌿 Ramas de la Aorta Abdominal</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--rose)">Ramas Parietales</h4>
+        <ul>
+          <li><strong>Arterias frénicas inferiores</strong> (2) — cara anterior de la aorta, debajo del hiato; emiten a. suprarrenal superior</li>
+          <li><strong>Arterias lumbares</strong> (5 pares) — cara posterior de la aorta; rama espinal + rama dorsal</li>
+          <li><strong>Arteria sacra media</strong> — en el ángulo de la bifurcación aórtica (L4-L5)</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--rose)">Ramas Viscerales</h4>
+        <ul>
+          <li><strong>Tronco celíaco</strong> (T12-L1) — 3 ramas: esplénica + gástrica izquierda + hepática común</li>
+          <li><strong>A. mesentérica superior</strong> — intestino delgado + colon derecho</li>
+          <li><strong>A. mesentérica inferior</strong> — colon izquierdo + recto</li>
+          <li><strong>As. suprarrenales medias</strong></li>
+          <li><strong>As. renales</strong></li>
+          <li><strong>As. testiculares u ováricas</strong> (gonadales)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">Tronco celíaco = Esplénica + Gástrica IZQUIERDA + Hepática COMÚN. NO incluye la cística ni la hepática propia directamente.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔵 Vena Cava Inferior</div>
+    <div class="box box-blue">
+      Se forma por la unión de las dos venas ilíacas comunes, a nivel de L4-L5. Asciende a la derecha de la aorta. Atraviesa el diafragma por el orificio de la VCI (T8). <strong>La vena renal izquierda</strong> es más larga y pasa por <em>delante</em> de la aorta abdominal y <em>debajo</em> de la arteria mesentérica superior (no pasa por detrás de la VCI).
+    </div>
+    <div class="prova">La arteria renal DERECHA pasa por DETRÁS de la VCI. La vena renal IZQUIERDA es más larga y pasa por DELANTE de la aorta. El riñón IZQUIERDO es más elevado que el derecho.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== RIÑONES ===== -->
+<section class="section" id="rinones">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(96,165,250,0.12)">🫘</div>
+    <div><div class="section-title">Riñones</div><div class="section-sub">Clase 17 · Latarjet Cap. 116</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades y Dimensiones</div>
+    <div class="grid3">
+      <div class="box box-blue" style="margin:0"><strong>Forma:</strong> poroto/habichuela</div>
+      <div class="box box-blue" style="margin:0"><strong>Peso:</strong> ~170 g</div>
+      <div class="box box-blue" style="margin:0"><strong>Dimensiones:</strong> 10-12 cm × 6 cm × 3-4 cm</div>
+    </div>
+    <div class="box box-purple" style="margin-top:10px"><strong>Extensión:</strong> D12 → L3. Eje mayor: de arriba→abajo, de adentro→afuera. El riñón <strong>derecho</strong> está más bajo que el izquierdo (por el hígado). El izquierdo es más elevado.</div>
+    <p style="font-size:0.84rem;color:#c8b8de;margin-top:10px">Son órganos <strong>retroperitoneales primarios</strong>. Situados en la parte alta de la región retroperitoneal, a ambos lados de los grandes vasos prevertebrales.</p>
+    <div class="prova">Riñón IZQUIERDO más elevado. Riñón DERECHO más bajo. Órganos retroperitoneales: riñones, uréteres, glándulas suprarrenales, aorta, VCI, duodeno (2ª-4ª), páncreas, colon ascendente, colon descendente.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔬 Configuración Interna — Parénquima Renal</div>
+    <div class="tree">
+      <div class="l0">Desde la superficie hacia la profundidad:</div>
+      <div class="l1"><strong>Corteza renal</strong> — capa externa periférica</div>
+      <div class="l1"><strong>Columnas renales (de Bertin)</strong> — prolongaciones de la corteza entre las pirámides</div>
+      <div class="l1"><strong>Médula renal</strong> — pirámides de Malpighi (8-18 pirámides)</div>
+      <div class="l2">• Vértice de la pirámide = papila renal</div>
+      <div class="l2">• Papila → cáliz menor → cáliz mayor → pelvis renal → uréter</div>
+    </div>
+    <div class="box box-pink" style="margin-top:12px"><strong>Lóbulo renal:</strong> = 1 pirámide + corteza que la rodea. Cada riñón tiene ~9 lóbulos renales.</div>
+    <div class="prova">Las columnas de Bertin son prolongaciones de la CORTEZA entre las pirámides (tejido medular). Son falsas cuando se dice que son "prolongaciones del tejido medular" — son de la corteza.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🚪 Hilio Renal — Disposición</div>
+    <div class="grid2">
+      <div class="box box-green" style="margin:0"><strong>De adelante → atrás:</strong><br>Vena renal → Arteria renal → Pelvis renal</div>
+      <div class="box box-blue" style="margin:0"><strong>De arriba → abajo:</strong><br>Arteria renal → Vena renal → Pelvis renal</div>
+    </div>
+    <div class="prova">Mnemónico: A-V-P (Arteria-Vena-Pelvis) de arriba a abajo. La arteria está en posición más SUPERIOR.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🛡️ Fascias y Envolturas Renales</div>
+    <div class="tree">
+      <div class="l0">De afuera hacia adentro:</div>
+      <div class="l1"><strong>Fascia renal</strong> (envoltura fibrosa):
+        <div class="l2">• Hoja anterior = <strong>fascia de Gerota</strong> (delgada)</div>
+        <div class="l2">• Hoja posterior = <strong>fascia de Zuckerkandl</strong> (más gruesa y resistente)</div>
+      </div>
+      <div class="l1"><strong>Espacio perirrenal</strong> — ocupado por grasa perirrenal (<em>cápsula adiposa del riñón</em>)</div>
+      <div class="l1"><strong>Cápsula renal</strong> — fibrosa, propia del riñón</div>
+    </div>
+    <div class="prova">La fascia que envuelve el riñón HACIA ATRÁS es la de ZUCKERKANDL (posterior, más gruesa). La de Gerota es anterior. NO confundir con la fascia transversalis ni Gerlach.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🫀 Relaciones Anatómicas del Riñón</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Relaciones Posteriores (ambos)</h4>
+        <ul>
+          <li>Diafragma (superior)</li>
+          <li>Cuadrado lumbar</li>
+          <li>Músculo iliopsoas (psoas mayor)</li>
+          <li>Fascia ilíaca</li>
+          <li>Músculo transverso (aponeurosis)</li>
+          <li>12ª costilla</li>
+          <li>De afuera → adentro: transverso → cuadrado lumbar → psoas mayor</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Relaciones Anteriores</h4>
+        <ul>
+          <li><strong>Riñón Derecho:</strong> hígado (superior), flexura cólica derecha (inferior), duodeno (medial-hilio)</li>
+          <li><strong>Riñón Izquierdo:</strong> bazo (superior lateral), cuerpo-cola del páncreas, colon transverso y flexura cólica izquierda, asas delgadas (inferior)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">Riñón IZQUIERDO → estómago, bazo, páncreas. Riñón DERECHO → hígado, duodeno. La relación posterior de afuera a adentro: Transverso — Cuadrado lumbar — Psoas mayor.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Vascularización Renal</div>
+    <div class="info-block">
+      <h4 style="color:var(--rose)">Arteria renal derecha</h4>
+      <ul>
+        <li>Cara derecha de la aorta, nivel L1, algo bajo el origen de la AMS</li>
+        <li>3-5 cm longitud; 4-7 mm diámetro</li>
+        <li>Pasa por <strong>detrás de la vena cava inferior</strong></li>
+        <li>Por detrás de la vena renal derecha</li>
+      </ul>
+    </div>
+    <div class="info-block" style="margin-top:12px">
+      <h4 style="color:var(--rose)">Arteria renal izquierda</h4>
+      <ul>
+        <li>Cara izquierda de la aorta; algo más corta</li>
+        <li>Por delante de la columna lumbar y del psoas mayor</li>
+        <li>Por delante se relaciona con la <strong>vena renal izquierda</strong> y el cuerpo del páncreas</li>
+      </ul>
+    </div>
+    <div class="box box-blue" style="margin-top:12px"><strong>Vena renal izquierda:</strong> más larga, pasa por <strong>delante de la aorta</strong> y <strong>debajo de la AMS</strong>. Recibe: vena suprarrenal izquierda + vena gonadal izquierda. <strong>NO pasa por detrás de la VCI.</strong></div>
+    <div class="prova">Arco arterial perirrenal (capsular) = arterias renales + gonadales + lumbares + frénicas (inferiores). Las cólicas NO forman parte del arco perirrenal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔬 La Nefrona — Unidad Funcional del Riñón</div>
+    <div class="box box-purple">~1,25 millones de nefronas por riñón. Estructuras:
+      <ul style="margin-top:8px;margin-left:16px">
+        <li><strong>Cápsula de Bowman</strong> (corpúsculo renal + glomérulo)</li>
+        <li><strong>Túbulo contorneado proximal</strong></li>
+        <li><strong>Asa de Henle</strong></li>
+        <li><strong>Túbulo contorneado distal</strong></li>
+        <li><strong>Túbulo colector</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== URÉTERES ===== -->
+<section class="section" id="ureteres">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(96,165,250,0.12)">🔵</div>
+    <div><div class="section-title">Uréteres & Pelvis Renal</div><div class="section-sub">Clase 18 · Latarjet Cap. 117</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Pelvis Renal (Bacinete)</div>
+    <p style="font-size:0.85rem;color:#c8b8de">Forma de embudo aplanado AP, orientado abajo y medialmente. Dentro del seno renal, atraviesa el hilio renal. Termina en la <strong>unión pieloureteral</strong> → uréter.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔵 Uréter — Generalidades</div>
+    <div class="grid3">
+      <div class="box box-blue" style="margin:0"><strong>Longitud:</strong> 25-35 cm</div>
+      <div class="box box-blue" style="margin:0"><strong>Diámetro:</strong> 6-8 mm</div>
+      <div class="box box-blue" style="margin:0"><strong>Capas:</strong> mucosa + muscular + fibrosa</div>
+    </div>
+    <div class="box box-purple" style="margin-top:10px"><strong>Función:</strong> transportar orina desde el riñón hasta la vejiga urinaria.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📦 Porciones del Uréter</div>
+    <div class="grid3">
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Porción Abdominal (lumbar)</h4>
+        <ul>
+          <li>Atrás: fascia ilíaca, psoas, apófisis costales L3-L5</li>
+          <li>Adelante: vasos ováricos/testiculares, flexura duodenal, arco de Treitz</li>
+          <li>Medial: VCI (derecha), aorta (izquierda)</li>
+          <li>Lateral: colon ascendente (der.) o descendente (izq.)</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Porción Iliaca (sacroilíaca)</h4>
+        <ul>
+          <li>Atrás: arterias ilíacas comunes</li>
+          <li>Lateral: a. ovárica/testicular + n. genitofemoral</li>
+          <li>Adelante der.: terminación del mesenterio, región cecoapendicular</li>
+          <li>Adelante izq.: mesocolon sigmoideo</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--blue)">Porción Vesical</h4>
+        <ul>
+          <li>Porción pélvica → vejiga</li>
+          <li>⚠️ En mujer: <strong>arteria uterina cruza por DELANTE</strong> al uréter</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prova">Porciones del uréter: abdominal (lumbar) — iliaca (sacroilíaca/pélvica) — vesical. En cirugía ginecológica: "el agua pasa bajo el puente" = el uréter pasa debajo de la arteria uterina.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚠️ Estrechamientos del Uréter</div>
+    <div class="grid3">
+      <div class="box box-yellow" style="margin:0"><span class="num">1</span><strong>Unión pieloureteral</strong></div>
+      <div class="box box-yellow" style="margin:0"><span class="num">2</span><strong>Al pasar sobre los vasos ilíacos</strong></div>
+      <div class="box box-yellow" style="margin:0"><span class="num">3</span><strong>Porción vesical</strong> (entrada a la vejiga)</div>
+    </div>
+    <div class="prova">3 estrechamientos del uréter: unión pieloureteral — vasos ilíacos — porción vesical. Son los sitios donde se impactan los cálculos renales.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Vascularización del Uréter</div>
+    <table class="tbl">
+      <tr><th>Porción</th><th>Irrigación</th></tr>
+      <tr><td>Abdominal e iliaca</td><td>Arteria renal + Arteria gonadal</td></tr>
+      <tr><td>Pélvica</td><td>Ramas de la arteria hipogástrica (ilíaca interna)</td></tr>
+      <tr><td>Vesical</td><td>Ramas de las arterias vesicales</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚡ Inervación del Uréter</div>
+    <ul style="font-size:0.85rem;color:#c8b8de;margin-left:18px">
+      <li>Raíz nerviosa superior: plexos renales</li>
+      <li>Nervio principal inferior: nervio hipogástrico</li>
+      <li>Raíz inferior: plexo hipogástrico inferior</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== MENINGES ===== -->
+<section class="section" id="meninges">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(167,139,250,0.12)">🧠</div>
+    <div><div class="section-title">Meninges</div><div class="section-sub">Clase 10 · Latarjet Cap. 24-25 · Snell Cap. 12-13</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Generalidades</div>
+    <p style="font-size:0.85rem;color:#c8b8de">El encéfalo está separado de las paredes óseas del cráneo por envolturas concéntricas: las <strong>meninges</strong>. De exterior a interior: <strong>duramadre → aracnoides → piamadre</strong>.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏋️ Duramadre</div>
+    <div class="grid2">
+      <div class="info-block">
+        <h4 style="color:var(--purple)">2 capas</h4>
+        <ul>
+          <li><strong>Capa endóstica (externa):</strong> recubre la cara interna de los huesos del cráneo</li>
+          <li><strong>Capa meníngea (interna):</strong> membrana fibrosa fuerte; se continúa a través del agujero magno con la duramadre de la médula espinal</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--purple)">Prolongaciones (tabiques)</h4>
+        <ul>
+          <li><strong>Hoz del cerebro</strong></li>
+          <li><strong>Hoz del cerebelo</strong></li>
+          <li><strong>Tienda del cerebelo</strong></li>
+          <li><strong>Diafragma selar</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🩸 Senos Venosos de la Duramadre</div>
+    <div class="box box-purple">Entre las capas de la duramadre. Función: recoger sangre de venas cerebrales + LCR de vellosidades aracnoideas. Tapizados por endotelio. Sin tejido muscular. Drenan en las <strong>venas yugulares internas</strong>.</div>
+    <div class="grid3">
+      <div class="info-block">
+        <h4 style="color:var(--light-purple)">Grupo Superoposterior</h4>
+        <ul>
+          <li>Seno sagital superior</li>
+          <li>Seno sagital inferior</li>
+          <li>Seno recto</li>
+          <li>Senos occipitales posteriores</li>
+          <li><em>Confluencia de los senos = Prensa de Herófilo</em></li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--light-purple)">Grupo Anteroinferior</h4>
+        <ul>
+          <li>Seno cavernoso y sus afluentes</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h4 style="color:var(--light-purple)">Grupo Lateral</h4>
+        <ul>
+          <li>Seno transverso</li>
+          <li>Seno sigmoideo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔴 Irrigación de la Duramadre</div>
+    <ul style="font-size:0.85rem;color:#c8b8de;margin-left:18px">
+      <li><strong>A. meníngea anterior</strong> — rama de la a. etmoidal anterior</li>
+      <li><strong>A. meníngea media</strong> — rama de la a. maxilar; entra por el orificio espinoso; se sitúa entre las capas de la duramadre (clínicamente relevante en hematoma epidural)</li>
+      <li><strong>A. meníngea posterior</strong> — ramos de la a. vertebral</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚡ Inervación de la Duramadre</div>
+    <div class="box box-purple">Ramas del <strong>nervio trigémino (V)</strong>, vago (X) y los 3 primeros nervios espinales cervicales + tronco simpático. Terminaciones sensitivas sensibles al estiramiento → <strong>cefaleas</strong>. Estimulación del trigémino por encima del tentorio → dolor referido al mismo lado de la cabeza.</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===== PROVAS — GABARITO ===== -->
+<section class="section" id="provas">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(251,191,36,0.12)">📋</div>
+    <div><div class="section-title">Gabarito das Provas</div><div class="section-sub">Respostas confirmadas pelo professor (circuladas em vermelho)</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📝 Prova P2 — Parte I: Múltipla Escolha (Q1–21)</div>
+    <table class="tbl">
+      <tr><th>Q</th><th>Enunciado</th><th>Resposta</th><th>Justificativa</th></tr>
+      <tr><td>1</td><td>Partes móviles del colon son, excepto:</td><td><strong class="badge badge-pink">D — Ascendente</strong></td><td>El colon ascendente es FIJO. Móviles: transverso, sigmoideo</td></tr>
+      <tr><td>2</td><td>Elemento de la curvatura menor del estómago hacia el hígado:</td><td><strong class="badge badge-pink">C — Epiplón menor</strong></td><td>Epiplón menor = gastrohepático (curvatura menor → hígado)</td></tr>
+      <tr><td>3</td><td>Ramas del tronco celíaco:</td><td><strong class="badge badge-pink">C — Esplénica, coronaria estomáquica y hepática común</strong></td><td>Las 3 ramas directas del tronco celíaco</td></tr>
+      <tr><td>4</td><td>Con respecto al estómago, es incorrecto:</td><td><strong class="badge badge-pink">C — El borde izquierdo se relaciona con el hígado</strong></td><td>El borde DERECHO (curvatura menor) se relaciona con el hígado; el izquierdo con el bazo</td></tr>
+      <tr><td>5</td><td>Límites del triángulo de Labbé:</td><td><strong class="badge badge-pink">B — Borde condral + línea cóncava + P9ª cartílago costal + línea solar anterior</strong></td><td>Triángulo de Labbé = percusión gástrica en pared anterior</td></tr>
+      <tr><td>6</td><td>¿Cómo se forma el conducto colédoco?</td><td><strong class="badge badge-pink">A — Confluencia del conducto cístico y hepático común</strong></td><td>Colédoco = Cístico + Hepático COMÚN</td></tr>
+      <tr><td>7</td><td>Músculo del abdomen que se expande en abanico hacia abajo, adelante y medialmente:</td><td><strong class="badge badge-pink">B — Oblicuo externo</strong></td><td>El oblicuo externo se expande en abanico hacia abajo y medialmente</td></tr>
+      <tr><td>8</td><td>Cinta fibrosa desde espina ilíaca anterior superior hasta espina púbica:</td><td><strong class="badge badge-pink">B — Ligamento inguinal</strong></td><td>Ligamento inguinal (de Poupart): EIAS → espina del pubis</td></tr>
+      <tr><td>9</td><td>Hoja fibrosa entre los rectos abdominales, del xifoides a sínfisis púbica:</td><td><strong class="badge badge-pink">C — Línea alba</strong></td><td>Línea alba = rafe mediano fibroso</td></tr>
+      <tr><td>10</td><td>El hígado se proyecta en cuáles cuadrantes:</td><td><strong class="badge badge-pink">B — Hipocondrio derecho, epigastrio e hipocondrio izquierdo</strong></td><td>El hígado ocupa los 3 cuadrantes superiores</td></tr>
+      <tr><td>11</td><td>Son órganos retroperitoneales primarios, excepto:</td><td><strong class="badge badge-pink">A — Colon ascendente</strong></td><td>El colon ascendente es retroperitoneal SECUNDARIO (se adosó por coalescencia)</td></tr>
+      <tr><td>12</td><td>Sobre el intestino delgado, NO es correcto afirmar:</td><td><strong class="badge badge-pink">B — El íleon está cerca de la flexura duodenoyeyunal</strong></td><td>El íleon está cerca de la unión ILEOCECAL; el yeyuno cerca de la flexura duodenoyeyunal</td></tr>
+      <tr><td>13</td><td>Sobre el intestino grueso, es correcto afirmar:</td><td><strong class="badge badge-pink">A — Orificio ileal bordeado por papila ileal (válvula de Bauhin)</strong></td><td>La válvula ileocecal = de Bauhin; orificio del apéndice = válvula de Gerlach</td></tr>
+      <tr><td>14</td><td>Lo correcto sobre la raíz del mesenterio:</td><td><strong class="badge badge-pink">C — Flanco izquierdo a nivel L2 hasta articulación sacroilíaca derecha</strong></td><td>Dirección oblicua de izquierda a derecha, de arriba abajo</td></tr>
+      <tr><td>15</td><td>Sobre el hígado es correcto afirmar:</td><td><strong class="badge badge-pink">C — Presenta 4 lóbulos</strong></td><td>4 lóbulos: derecho, izquierdo, cuadrado, caudado (de Spiegel)</td></tr>
+      <tr><td>16</td><td>La irrigación funcional del hígado está dada por:</td><td><strong class="badge badge-pink">C — La vena porta / D — A. hepática propia</strong></td><td>Funcional = vena porta. Nutricia = arteria hepática propia</td></tr>
+      <tr><td>17</td><td>La fascia que envuelve el riñón hacia atrás se denomina:</td><td><strong class="badge badge-pink">A — Zuckerkandl</strong></td><td>Fascia de Zuckerkandl = hoja POSTERIOR de la fascia renal</td></tr>
+      <tr><td>18</td><td>Relación posterior del riñón de afuera hacia adentro:</td><td><strong class="badge badge-pink">B — Cuadrado del lumbar, psoas mayor, transverso</strong></td><td>De afuera a adentro: transverso → cuadrado lumbar → psoas mayor</td></tr>
+      <tr><td>19</td><td>El meato urinario se abre en el vestíbulo de la vulva:</td><td><strong class="badge badge-pink">A — Por detrás del clítoris</strong></td><td>El meato urinario femenino se abre inmediatamente detrás del clítoris</td></tr>
+      <tr><td>20</td><td>Sobre la uretra masculina, es correcto afirmar:</td><td><strong class="badge badge-pink">B — El esfínter interno se ubica a nivel de la porción intramural</strong></td><td>El esfínter interno (involuntario) está a nivel del cuello vesical / porción intramural</td></tr>
+      <tr><td>21</td><td>Las dilataciones que presenta la uretra masculina son:</td><td><strong class="badge badge-pink">E — Prostática, bulbar, balánica</strong></td><td>3 dilataciones: prostática, bulbar (bulbo esponjoso), fosa navicular (balánica)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✅ Parte II — Verdadero o Falso (con justificativa del profesor)</div>
+    <table class="tbl">
+      <tr><th>Q</th><th>Enunciado</th><th>Resposta</th><th>Justificativa</th></tr>
+      <tr><td>22</td><td>Las Columnas de Bertin son prolongaciones del tejido medular del Riñón que se localizan entre las pirámides de Malpighi</td><td><strong class="badge badge-pink">FALSO</strong></td><td>Son prolongaciones de la <strong>CORTEZA</strong> (no del tejido medular)</td></tr>
+      <tr><td>23</td><td>La arteria renal izquierda es más larga que la derecha y en su trayecto pasa por detrás de la vena cava inferior</td><td><strong class="badge badge-pink">FALSO</strong></td><td>La izquierda es más <strong>CORTA</strong> y NO pasa por detrás de la VCI (la derecha sí pasa por detrás de la VCI)</td></tr>
+      <tr><td>24</td><td>El Riñón derecho se encuentra más elevado que el izquierdo</td><td><strong class="badge badge-pink">FALSO</strong></td><td>El <strong>IZQUIERDO</strong> es más elevado (el derecho está más bajo por el hígado)</td></tr>
+      <tr><td>25</td><td>El músculo cremaster es dependencia del músculo oblicuo mayor y su vascularización está dada por la arteria funicular, rama de la epigástrica inferior</td><td><strong class="badge badge-pink">FALSO</strong></td><td>El cremaster deriva del <strong>OBLICUO INTERNO</strong> (no del mayor/externo)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔗 Parte III — Pareamiento Formaciones Peritoneales</div>
+    <table class="tbl">
+      <tr><th>Q</th><th>Descripción</th><th>Resposta</th></tr>
+      <tr><td>26</td><td>Elemento que une órgano a pared con arterias y venas entre sus hojas</td><td><strong>D — Mesos</strong></td></tr>
+      <tr><td>27</td><td>Elemento que une órgano a órgano con arterias y venas entre sus hojas</td><td><strong>C — Epiplones</strong></td></tr>
+      <tr><td>28</td><td>Zona de mayor declive de la cavidad abdominal</td><td><strong>E — Fondo de saco</strong></td></tr>
+      <tr><td>29</td><td>Hoja conjuntiva que produce adosamiento de los órganos a la pared abdominal posterior</td><td><strong>A — Fascia de coalescencia</strong></td></tr>
+      <tr><td>30</td><td>Elemento que une órgano a órgano o pared a órgano SIN arterias y venas</td><td><strong>B — Ligamentos</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🏥 Prova P2 — Casos Clínicos (gabarito)</div>
+    <table class="tbl">
+      <tr><th>Caso</th><th>Situación</th><th>Resposta</th></tr>
+      <tr><td>1</td><td>Separación de lóbulos derecho e izquierdo del hígado — marcado por:</td><td>Cisura principal limitante</td></tr>
+      <tr><td>2</td><td>Triángulo de Calot — atravesado por:</td><td>Ligamento venoso / cisura principal limitante</td></tr>
+      <tr><td>3</td><td>Sobre el músculo oblicuo mayor es correcto:</td><td>Sus fibras se disponen en forma vertical hasta la espina del pubis (ligamento inguinal)</td></tr>
+      <tr><td>4</td><td>Mujer 22 años, apendicitis aguda — líquidos se acumularán en:</td><td><strong>Receso rectovesical / fondo de saco de Douglas</strong></td></tr>
+      <tr><td>5</td><td>Exploración laparoscópica — inflamación del apéndice — estructura utilizada para localizar:</td><td><strong>Unión ileocecal</strong></td></tr>
+      <tr><td>6</td><td>Cirugía evaluando duodeno y páncreas — arteria tortuosa horizontal sobre el borde del páncreas:</td><td><strong>Arteria esplénica</strong></td></tr>
+      <tr><td>SC-VCI</td><td>Formación anatómica de la vena cava inferior:</td><td>Arco marginal del colon o arco de Riolano</td></tr>
+      <tr><td>Hilio renal</td><td>Estructura más superior en el hilio renal:</td><td><strong>Arteria renal</strong></td></tr>
+      <tr><td>AMS</td><td>3ª porción del duodeno comprimida por vaso:</td><td><strong>Arteria mesentérica superior</strong></td></tr>
+      <tr><td>Curvatura menor</td><td>Sangrado en curvatura menor:</td><td><strong>Arteria gástrica derecha</strong></td></tr>
+      <tr><td>Vaina del recto</td><td>Hoja anterior por encima de la arcada de Douglas:</td><td><strong>Oblicuo externo + oblicuo interno</strong></td></tr>
+      <tr><td>Laparotomía</td><td>Separar vainas de rectos derecho e izquierdo:</td><td><strong>Línea alba</strong></td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DICAS FINAIS -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(251,191,36,0.12)">⭐</div>
+    <div><div class="section-title">Dicas Finais Para a Prova</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-pink">
+      <strong>🎯 Os mais cobrados:</strong><br>
+      1. Fascia de Zuckerkandl (posterior) vs Gerota (anterior)<br>
+      2. Hilio renal: A → V → Pelvis (sup→inf)<br>
+      3. Ramas do tronco celíaco: Esplénica + Gástrica esq. + Hepática comum<br>
+      4. Colédoco = Cístico + Hepático COMUM<br>
+      5. Riñón IZQUIERDO más elevado<br>
+      6. V. renal izq. pasa por DELANTE de la aorta
+    </div>
+    <div class="box box-purple">
+      <strong>🎯 Confusões comuns:</strong><br>
+      1. Cólicas NÃO formam arco perirrenal<br>
+      2. Columnas de Bertin = CORTEZA (não medular)<br>
+      3. Íleon perto da válvula ILEOCECAL (não do Treitz)<br>
+      4. Colon ascendente é retroperitoneal SECUNDÁRIO<br>
+      5. Arteria cística nace de la HEPÁTICA DERECHA<br>
+      6. Músculo cremaster = oblicuo INTERNO
+    </div>
+  </div>
+</section>
+
+</div><!-- end .page -->
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Subir">↑</button>
+
+<footer>Resumão Anatomía II 🎀 · Dra. Liz Leguizamón · Filial PJC · 2° Semestre</footer>
+
+<script>
+// Highlight nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.topnav a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--light-pink)' : '';
+    a.style.borderColor = a.getAttribute('href') === '#'+current ? 'var(--pink)' : 'transparent';
+  });
+  document.querySelector('.scroll-top').style.opacity = window.scrollY > 300 ? '1' : '0';
+});
+document.querySelector('.scroll-top').style.opacity = '0';
+document.querySelector('.scroll-top').style.transition = 'opacity 0.3s';
+</script>
+
+<script>
+(function initBows(){
+  var orbData=[
+    {w:500,h:320,t:2,l:55,c:'rgba(244,114,182,0.1)',dur:'8s',delay:'0s'},
+    {w:380,h:420,t:55,l:2,c:'rgba(167,139,250,0.09)',dur:'11s',delay:'2s'},
+    {w:340,h:480,t:25,l:72,c:'rgba(251,113,133,0.07)',dur:'9s',delay:'1s'},
+    {w:560,h:260,t:75,l:25,c:'rgba(196,181,253,0.08)',dur:'13s',delay:'3s'},
+    {w:300,h:300,t:45,l:45,c:'rgba(244,114,182,0.06)',dur:'10s',delay:'4s'}
+  ];
+  orbData.forEach(function(o){
+    var d=document.createElement('div');
+    d.className='bg-orb';
+    d.style.cssText='width:'+o.w+'px;height:'+o.h+'px;top:'+o.t+'%;left:'+o.l+'%;background:'+o.c+';--dur:'+o.dur+';--delay:'+o.delay+';--op:1';
+    document.body.appendChild(d);
+  });
+  var emojis=['🎀','🫧','🌸','✨','🪷','💉','🎀','🌸','✨','🫧','🪷','💉','🎀'];
+  var r0s=[-5,-15,8,-22,12,-5,18,-10,25,-8,15,-20,5];
+  var r1s=[10,5,-12,15,-18,10,-5,20,-15,12,-8,25,-10];
+  var r2s=[-5,20,-8,10,-10,15,8,-15,20,-5,18,-12,15];
+  emojis.forEach(function(e,i){
+    var d=document.createElement('div');
+    d.className='bg-emoji';
+    var sz=18+Math.floor(Math.random()*30);
+    d.style.cssText='top:'+(5+Math.random()*90)+'%;left:'+(2+Math.random()*96)+'%;'
+      +'--sz:'+sz+'px;--op:'+(0.07+Math.random()*0.11)+';'
+      +'--dur:'+(12+Math.random()*10).toFixed(1)+'s;'
+      +'--delay:'+(Math.random()*6).toFixed(1)+'s;'
+      +'--r0:'+r0s[i]+'deg;--r1:'+r1s[i]+'deg;--r2:'+r2s[i]+'deg';
+    d.textContent=e;
+    document.body.appendChild(d);
+  });
+  for(var i=0;i<9;i++){
+    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('width','14');svg.setAttribute('height','14');svg.setAttribute('viewBox','0 0 14 14');
+    svg.classList.add('bg-sparkle');
+    var p=document.createElementNS('http://www.w3.org/2000/svg','path');
+    p.setAttribute('d','M7 0L8.2 5.8 14 7 8.2 8.2 7 14 5.8 8.2 0 7 5.8 5.8 7 0Z');
+    p.setAttribute('fill','#f472b6');
+    svg.appendChild(p);
+    svg.style.cssText='top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;'
+      +'--dur:'+(2+Math.random()*3).toFixed(1)+'s;--delay:'+(Math.random()*4).toFixed(1)+'s;opacity:0';
+    document.body.appendChild(svg);
+  }
+  for(var j=0;j<10;j++){
+    var dd=document.createElement('div');
+    dd.className='bg-diamond';
+    dd.style.cssText='top:'+(Math.random()*100)+'%;left:'+(Math.random()*100)+'%;'
+      +'--dur:'+(6+Math.random()*8).toFixed(1)+'s;--delay:'+(Math.random()*5).toFixed(1)+'s';
+    document.body.appendChild(dd);
+  }
+})();
+</script>
+
+</body>
+</html>
